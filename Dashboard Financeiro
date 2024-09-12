@@ -1,0 +1,40 @@
+https://app.powerbi.com/view?r=eyJrIjoiNzExNzQ0YTgtMGNkMS00NTQwLWEwYzYtZTcxYWVmMzQxMjNlIiwidCI6ImI4ZTAwMWMxLWIxODktNGMxZi1hNzQwLTYzMjFiOWUyZjA2NCJ9
+
+
+Você também pode conferir meus projetos no meu portfólio:
+https://app.xperiun.com/in/1718845833586x801254007788535800
+
+
+Descrição do projeto:
+O projeto do dashboard financeiro tem como objetivo fornecer uma visualização clara e concisa dos principais indicadores financeiros de uma empresa.
+Ele incluirá dados sobre receita, custos, despesas e lucros, permitindo aos gestores tomarem decisões informadas rapidamente.
+
+Contexto e objetivos:
+Em um ambiente corporativo cada vez mais dinâmico e competitivo, a gestão financeira eficiente é crucial para a sustentabilidade
+e crescimento de qualquer organização. A capacidade de monitorar e analisar indicadores financeiros em tempo real permite aos gestores identificar 
+rapidamente problemas, oportunidades de melhoria e tomar decisões estratégicas embasadas em dados concretos. 
+No entanto, muitos sistemas financeiros existentes carecem de funcionalidades intuitivas e visualmente claras que permitam uma compreensão rápida e eficaz dos dados financeiros.
+
+Principais insights e descobertas:
+Crescimento ou Declínio: Identificação de períodos de crescimento ou declínio nas receitas, permitindo a análise das causas e a adoção
+de estratégias para potencializar ou reverter essas tendências.
+Sazonalidade: Compreensão dos padrões sazonais de receita, ajudando a planejar melhor as atividades de marketing e vendas durante períodos de alta e baixa demanda.
+
+Resultados e impacto:
+-Melhoria na Tomada de Decisões
+Decisões Baseadas em Dados: Com informações financeiras atualizadas e visualizações claras, os gestores puderam tomar decisões
+mais informadas e estratégicas, reduzindo o risco de erros baseados em suposições.
+Agilidade na Resposta: A capacidade de monitorar dados em tempo real permitiu uma resposta mais rápida a mudanças nas condições de mercado e desempenho interno.
+
+Metodologia e abordagem:
+-Definição de Requisitos
+Reuniões com Stakeholders: Realização de reuniões com os principais stakeholders (diretores financeiros, gerentes de departamento, analistas) para entender as necessidades e expectativas.
+Identificação de KPIs: Definição dos principais indicadores de desempenho (KPIs) financeiros que precisam ser monitorados, como receita, custos, despesas e lucros.
+
+Desafios e aprendizados:
+-Integração de Dados
+Desafio: Integrar dados de múltiplas fontes heterogêneas (sistemas contábeis, ERP, CRM, planilhas) com diferentes formatos e estruturas.
+Aprendizado: A importância de um processo ETL robusto. Implementar pipelines de dados bem estruturados e garantir a padronização
+e a limpeza dos dados desde o início é crucial para a precisão e a consistência do dashboard.
+
+
