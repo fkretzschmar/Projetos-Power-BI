@@ -1,0 +1,45 @@
+URL:
+https://app.powerbi.com/view?r=eyJrIjoiNjMxOTM0M2YtYWNhOC00MjQwLWJmYTAtYjBmYTlkNjNkN2E1IiwidCI6ImI4ZTAwMWMxLWIxODktNGMxZi1hNzQwLTYzMjFiOWUyZjA2NCJ9
+
+
+Medidas utilizadas:
+
+R$ Receita = SUM(Vendas[Receita])
+
+R$ Custo = SUMX(Vendas,Vendas[Quantidade] * RELATED(Produto[CustoUnitario]))
+
+R$ Margem = [R$ Receita] - [R$ Custo]
+
+Mini Dashboard: Receita, Custo e Margem
+1. Gráfico de Linha: Receita por Mês
+Descrição: Este gráfico de linha exibe a evolução da receita ao longo do tempo, mostrando as variações mensais. 
+Cada ponto da linha representa a receita total gerada em um mês específico. Este visual ajuda a identificar
+tendências sazonais e padrões de crescimento ou declínio da receita ao longo do ano.
+
+2. Gráfico de Barras: Receita por Grupo de Produto
+Descrição: Um gráfico de barras que compara a receita gerada por diferentes grupos de produtos. 
+Cada barra representa um grupo de produto, e o comprimento da barra indica a receita total obtida desse grupo.
+Este visual permite analisar quais grupos de produtos são mais lucrativos.
+
+3. Gráfico de Barras: Margem por Grupo de Produto
+Descrição: Um gráfico de barras que mostra a margem de lucro para cada grupo de produto. 
+Similar ao gráfico de receita por grupo de produto, mas aqui a barra representa a margem (receita menos custo)
+para cada grupo. Este visual ajuda a identificar quais grupos de produtos têm a maior margem de lucro.
+
+4. Gráfico de Barras: Margem por Vendedor
+Descrição: Este gráfico de barras mostra a margem de lucro gerada por cada vendedor. Cada barra representa um vendedor,
+e o comprimento da barra indica a margem total gerada por ele. Ajuda a avaliar o desempenho dos vendedores em termos de lucratividade.
+
+5. Gráfico de Rosca: Margem por Linha de Produto
+Descrição: Um gráfico de rosca que representa a distribuição da margem de lucro por linha de produto. 
+Cada segmento da rosca mostra a proporção da margem total atribuída a cada linha de produto, facilitando a visualização da contribuição de cada linha para o lucro geral.
+
+6. Tabela Matriz: Receita e Custo por Supervisor e Vendedor
+Descrição: Uma tabela matriz que exibe as métricas de receita e custo para cada supervisor e vendedor. 
+As linhas da tabela representam os supervisores e vendedores, enquanto as colunas mostram os valores de receita e custo. 
+Essa tabela proporciona uma visão detalhada das métricas de desempenho individuais.
+
+Você também pode conferir meus projetos no meu portfólio:
+https://app.xperiun.com/in/1718845833586x801254007788535800
+
+Fico à disposição para esclarecer qualquer dúvida.
