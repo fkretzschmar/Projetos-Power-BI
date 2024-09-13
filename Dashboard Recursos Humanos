@@ -1,0 +1,130 @@
+URL:
+https://app.powerbi.com/view?r=eyJrIjoiNDU4ZTFiZWYtN2Q3Mi00ZTJjLWFmZjgtNzI0OTU0NjY1NGIxIiwidCI6ImI4ZTAwMWMxLWIxODktNGMxZi1hNzQwLTYzMjFiOWUyZjA2NCJ9
+
+
+
+MEDIDAS UTILIZADA:
+*Quantidade de Contratações(Quantidade de linha da tabela Contrato)
+Contratações = COUNTROWS(fContrato)
+
+Func. Ativos = CALCULATE(
+    COUNTROWS(BaseFuncionario),
+    BaseFuncionario[Data de Demissao] = BLANK()
+)
+
+Func. Desligados = CALCULATE(
+    COUNTROWS(BaseFuncionario),
+    BaseFuncionario[Data de Demissao] <> BLANK()
+)
+
+OU
+
+*Quantidade demissões(Fazer a ligação da tabela caléndario/Date com dContrato/Data Afastamento)
+Demissões = 
+CALCULATE(
+    [Contratações],
+ fContrato[Situação] = "Demitido",  
+ USERELATIONSHIP(dCalendario[Date],fContrato[Data Afastamento]
+ )
+)
+
+
+*Total salário funcionario Ativos
+Massa Salarial =
+CALCULATE(
+SUM(fContrato[Valor Salário]),
+fContrato[Situação] <> "Demitido"
+)
+
+
+*Headcount(Contratações - Demissões)
+Headcount = 
+CALCULATE([Contratações] - [Demissões],
+FILTER(
+    ALL(dCalendario),
+    dCalendario[Date] <= MAX(dCalendario[Date])
+)
+)
+
+___________________________________________________________________________________________________________________________________________
+*Coluna Má Contratação(No modelo de exibição de tela criar uma nova coluna na tabela fContrato)"Pessoas demitidas antes de 60 dias de trabalho"
+Má Contratação = 
+IF(
+DATEDIFF(fContrato[Data Admissão],fContrato[Data Afastamento], DAY) < 60 && fContrato[Situação] = "Demitido",
+"Má Contratação",
+"Ok"
+)
+
+*Medida Má Contratação
+Má Contratação = 
+CALCULATE(
+    [Contratações],
+    fContrato[Má Contratação] = "Má Contratação"
+)
+
+OU 
+
+"Sem mudar a Tabela"     --------MELHOR----------
+*Medida Má Contratação
+Má Contratação = 
+CALCULATE(
+    [Contratações],
+    FILTER(
+      fContrato,
+        DATEDIFF(fContrato[Data Admissão],fContrato[Data Afastamento], DAY) < 60 && fContrato[Situação] = "Demitido"
+)
+)
+______________________________________________________________________________________________________________________________________________
+
+*Medida % Má Contratações
+% Má Contratações = DIVIDE([Má Contratação],[Contratações])
+
+______________________________________________________________________________________________________________________________________________
+*Medida Turnover representa a rotatividade da empresa, podendo ser aferido apenas para desligamentos 
+ou desligamentos e contratações da organização.
+% Turnover =
+DIVIDE(
+    [Demissões],
+    CALCULATE([Headcount], SAMEPERIODLASTYEAR(dCalendario[Date]))
+)
+
+*Criar uma coluna ano no caléndario
+% Turnover Ano Max = 
+CALCULATE(
+    [% Turnover],
+    FILTER(
+        ALL(dCalendario),
+        dCalendario[Ano] = MAX(dCalendario[Ano])
+    )
+    )
+______________________________________________________________________________________________________________________________________________
+*Medida Absenteísmo
+Absenteísmo = 
+CALCULATE(
+    SUM(fFinanceira[Valor]),
+    fFinanceira[Categoria] = "Absenteísmo"
+)
+
+
+
+*Medida Horas Normais
+Horas Normais =
+CALCULATE(
+    SUM(fFinanceira[Valor]),
+    fFinanceira[Categoria] = "Horas Normais"
+)
+
+*Medida % Absenteísmo
+% Absenteísmo = DIVIDE([Absenteísmo], [Horas Normais])
+
+
+*Medida Horas Extras
+Horas Extras = 
+CALCULATE(
+    SUM(fFinanceira[Valor]),
+    fFinanceira[Categoria] = "Horas Extras"
+)
+
+*Medida % Horas Extras
+% Horas Extras = 
+ DIVIDE([Horas Extras], [Horas Normais])
