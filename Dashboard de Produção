@@ -1,0 +1,21 @@
+URL:
+https://app.powerbi.com/view?r=eyJrIjoiOWNiNmY0OTQtOTJmMC00ODE1LWE2MTktN2U4MTdiNTVmNmNhIiwidCI6ImI4ZTAwMWMxLWIxODktNGMxZi1hNzQwLTYzMjFiOWUyZjA2NCJ9
+
+
+MEDIDAS UTILIZADAS:
+
+Total Aprovado = SUM('BaseProdução'[Qtd Aprovada])
+
+Total Produzido = [Total Aprovado] + [Total Rejeitados]
+
+Total Rejeitados = SUM('BaseProdução'[Qtd Rejeitada])
+
+Horas Paradas = [Horas Trabalhadas] - [Horas Produtivas]
+
+Horas Produtivas = CALCULATE(SUM('BaseProdução'[Total Horas]), 'BaseProdução'[Ocorrência] = BLANK())
+
+Horas Trabalhadas = SUM('BaseProdução'[Total Horas])
+
+% Produtividade = [Horas Produtivas]/[Horas Trabalhadas]
+
+% Qualidade = [Total Aprovado]/[Total Produzido]
